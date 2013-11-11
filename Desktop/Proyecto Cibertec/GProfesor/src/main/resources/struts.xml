@@ -4,6 +4,11 @@
 "http://struts.apache.org/dtds/struts-2.0.dtd">
  
 <struts>
-	<package name="default" namespace="/" extends="struts-default">		
+	<package name="default" namespace="/" extends="struts-default">	
+            <action name="verListado" 
+                    class="profesorAction" 
+                    method="verListado">
+                <result>pages/listado.jsp</result> 
+            </action>	
 	</package>	
 </struts>
