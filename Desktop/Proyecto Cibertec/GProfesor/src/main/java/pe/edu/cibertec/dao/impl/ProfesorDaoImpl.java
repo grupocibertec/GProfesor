@@ -5,6 +5,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import pe.edu.cibertec.dao.ProfesorDao;
 import pe.edu.cibertec.model.Profesor;
 
@@ -27,16 +28,21 @@ public class ProfesorDaoImpl implements ProfesorDao {
         return (Profesor) q.getSingleResult();
     }
 
+    
     @Override
-    public void insert(Profesor profesor) {
-       em.persist(profesor);
+    @Transactional
+    public Integer insert(Profesor profesor) {
+        em.persist(profesor);
+        return profesor.getIdProfesor();
     }
 
+    @Transactional
     @Override
     public void update(Profesor profesor) {
         em.merge(profesor);
     }
 
+    @Transactional
     @Override
     public void delete(Profesor profesor) {
         em.remove(profesor);

@@ -9,7 +9,7 @@ public interface ProfesorDao {
 
     public Profesor getById(Integer id);
 
-    public void insert(Profesor profesor);
+    public Integer insert(Profesor profesor);
 
     public void update(Profesor profesor);
 

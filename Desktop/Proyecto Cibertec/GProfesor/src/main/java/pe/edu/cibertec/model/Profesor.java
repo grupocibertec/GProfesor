@@ -53,7 +53,7 @@ public class Profesor implements Serializable{
     @Column(name="prof_direccion",nullable=true,length=50)
     private String direccion;
     
-    @Column(name="prof_modalidad",length=1, columnDefinition="T=Titular, A=Agregado, H=Ayudante, S=Asociado, I=Interno.")
+    @Column(name="prof_modalidad",length=1, columnDefinition="T=Titular, A=Agregado, H=Ayudante, I=Interno.")
     private Character modalidad;
     
     @Column(name="prof_nivelAcademico", length=1, columnDefinition="T=Técnico, S=Superior, M=Master")

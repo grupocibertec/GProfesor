@@ -4,11 +4,32 @@
 "http://struts.apache.org/dtds/struts-2.0.dtd">
  
 <struts>
-	<package name="default" namespace="/" extends="struts-default">	
-            <action name="verListado" 
+    <constant name="struts.custom.i18n.resources" value="language"/>
+    
+    <package name="default" namespace="/" extends="struts-default">	
+        
+        <action name="verListado" 
+                class="profesorAction" 
+                method="verListado">
+            <result>pages/listado.jsp</result> 
+        </action>
+        
+        <action name="paginaInsertar" 
+                class="profesorAction" 
+                method="paginaInsertar">
+            <result>pages/insertar.jsp</result> 
+        </action>
+        
+        <action name="insertarProfesor" 
                     class="profesorAction" 
-                    method="verListado">
-                <result>pages/listado.jsp</result> 
-            </action>	
-	</package>	
+                    method="insertarProfesor">
+            <result>pages/insertar.jsp</result> 
+        </action>    	
+        
+        <action name="eliminar" 
+                class="profesorAction" 
+                method="eliminar">
+            <result>pages/listado.jsp</result> 
+        </action>	
+    </package>	
 </struts>

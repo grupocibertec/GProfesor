@@ -34,7 +34,7 @@
             <scope>provided</scope>
         </dependency>
         
-         <dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>3.8.1</version>
@@ -117,6 +117,17 @@
             <artifactId>aspectjrt</artifactId>
             <version>1.6.11</version>
         </dependency>
+        <dependency>
+            <groupId>com.jgeppert.struts2.jquery</groupId>
+            <artifactId>struts2-jquery-plugin</artifactId>
+            <version>3.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+        </dependency>
+        
         
     </dependencies>
 
