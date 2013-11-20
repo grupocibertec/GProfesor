@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags" %>
 
@@ -23,17 +24,53 @@
                     <td><s:property value="nombre"/></td>
                     <td><s:property value="apPaterno"/></td>
                     <td><s:property value="apMaterno"/></td>
-                    <td><s:property value="modalidad"/></td>
-                    <td><s:property value="estado"/></td>
-                    <td><s:property value="nivel"/></td>
+                    <td>
+                        <s:if test="modalidad=='T'">
+                            <s:text name="modalidad.titular"/>
+                        </s:if>
+                        <s:if test="modalidad=='A'">
+                            <s:text name="modalidad.agregado"/>
+                        </s:if>
+                        <s:if test="modalidad=='H'">
+                            <s:text name="modalidad.ayudante"/>
+                        </s:if>
+                        <s:if test="modalidad=='I'">
+                            <s:text name="modalidad.interno"/>
+                        </s:if>
+                    </td>
+                    <td>
+                        <s:if test="estado=='A'">
+                            <s:text name="estadoProfesor.activo"/>
+                        </s:if>
+                        <s:if test="estado=='I'">
+                            <s:text name="estadoProfesor.inactivo"/>
+                        </s:if>
+                        <s:if test="estado=='C'">
+                            <s:text name="estadoProfesor.capacitacion"/>
+                        </s:if>
+                        <s:if test="estado=='V'">
+                            <s:text name="estadoProfesor.vacaciones"/>
+                        </s:if>
+                    </td>
+                    <td>
+                        <s:if test="nivel=='T'">
+                            <s:text name="nivelAcademico.Técnico"/>
+                        </s:if>
+                        <s:if test="nivel=='S'">
+                            <s:text name="nivelAcademico.superior"/>
+                        </s:if>
+                        <s:if test="nivel=='M'">
+                            <s:text name="nivelAcademico.master"/>
+                        </s:if>
+                    </td>
                     <td><s:date format="dd/MM/yyyy" name="fcIngreso"/></td>
                     <td><s:date format="dd/MM/yyyy" name="fcRegistro"/></td>
                     <td><s:date format="dd/MM/yyyy" name="fcActualizacion"/></td>
                     <td>
-                        <s:url var="editar">
+                        <s:url action="paginaModificar" var="paginaModificar">
                             <s:param name="id" value="idProfesor"/>
                         </s:url>
-                        <s:a href="#"><s:text name="listado.editar"/></s:a>
+                        <s:a href="%{paginaModificar}"><s:text name="listado.editar"/></s:a>
                         </td>
                         <td>
                         <s:url action="eliminar" var="eliminar">
@@ -42,10 +79,10 @@
                         <s:a href="%{eliminar}"><s:text name="listado.eliminar"/></s:a>
                         </td>
                         <td>
-                        <s:url var="detalle">
+                        <s:url action="verDetalle" var="verDetalle">
                             <s:param name="id" value="idProfesor"/>
                         </s:url>
-                        <s:a href="#"><s:text name="listado.detalle"/></s:a>
+                        <s:a href="%{verDetalle}"><s:text name="listado.detalle"/></s:a>
                         </td>
                     </tr>
             </s:iterator>

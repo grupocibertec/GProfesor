@@ -24,12 +24,30 @@
                 class="profesorAction" 
                 method="insertarProfesor">
             <result name="success" type="redirectAction">verListado</result>
-        </action>    	
+        </action>    
+        
+        <action name="paginaModificar" 
+                class="profesorAction" 
+                method="paginaModificar">
+            <result>pages/modificar.jsp</result> 
+        </action>        
+                      
+        <action name="modificarProfesor" 
+                class="profesorAction" 
+                method="modificarProfesor">
+            <result name="success" type="redirectAction">verListado</result>
+        </action>   	
         
         <action name="eliminar" 
                 class="profesorAction" 
                 method="eliminar">
             <result name="success" type="redirectAction">verListado</result>
-        </action>	
+        </action>
+        
+        <action name="verDetalle" 
+                class="profesorAction" 
+                method="verDetalle">
+            <result>pages/detalle.jsp</result> 
+        </action>   	
     </package>	
 </struts>

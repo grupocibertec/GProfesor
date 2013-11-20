@@ -37,10 +37,23 @@
         <property name="entityManagerFactory" ref="entityManagerFactory" />
     </bean> 
     
-    <tx:annotation-driven />
+    <tx:annotation-driven order="1"/>
     
     <bean id="profesorAction" class="pe.edu.cibertec.action.ProfesorAction"></bean>
     
+    <tx:advice id="advice1">
+        <tx:attributes>
+            <tx:method name="list*" read-only="true"/>
+            <tx:method name="*"
+                       propagation="REQUIRES_NEW" 
+                       isolation="READ_UNCOMMITTED"/>
+        </tx:attributes>
+    </tx:advice>
     
+    <aop:config>
+        <aop:pointcut id="ServiceOperation"
+          expression="execution(* pe.edu.cibertec.service.impl.ProfesorServiceImpl.*(..))"/>
+        <aop:advisor pointcut-ref="ServiceOperation" advice-ref="advice1" order="2"/>
+    </aop:config>
     
 </beans>
