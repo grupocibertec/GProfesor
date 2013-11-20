@@ -21,15 +21,15 @@
         </action>
         
         <action name="insertarProfesor" 
-                    class="profesorAction" 
-                    method="insertarProfesor">
-            <result>pages/insertar.jsp</result> 
+                class="profesorAction" 
+                method="insertarProfesor">
+            <result name="success" type="redirectAction">verListado</result>
         </action>    	
         
         <action name="eliminar" 
                 class="profesorAction" 
                 method="eliminar">
-            <result>pages/listado.jsp</result> 
+            <result name="success" type="redirectAction">verListado</result>
         </action>	
     </package>	
 </struts>

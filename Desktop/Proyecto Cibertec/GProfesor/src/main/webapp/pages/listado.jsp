@@ -36,10 +36,10 @@
                         <s:a href="#"><s:text name="listado.editar"/></s:a>
                         </td>
                         <td>
-                        <s:url var="eliminar">
+                        <s:url action="eliminar" var="eliminar">
                             <s:param name="id" value="idProfesor"/>
                         </s:url>
-                        <s:a href="#"><s:text name="listado.eliminar"/></s:a>
+                        <s:a href="%{eliminar}"><s:text name="listado.eliminar"/></s:a>
                         </td>
                         <td>
                         <s:url var="detalle">

@@ -7,8 +7,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import pe.edu.cibertec.action.prepare.EstadoProfesor;
 import pe.edu.cibertec.action.prepare.Genero;
@@ -19,6 +17,7 @@ import pe.edu.cibertec.service.ProfesorService;
 
 public class ProfesorAction extends ActionSupport implements Preparable {
 
+    
     private List<Profesor> listadoProfesor;
     private Profesor profesor;
     private Integer id;
