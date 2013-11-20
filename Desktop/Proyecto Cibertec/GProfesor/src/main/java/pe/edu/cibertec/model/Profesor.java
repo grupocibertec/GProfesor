@@ -67,7 +67,7 @@ public class Profesor implements Serializable{
     private Date fcIngreso;
     
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="prof_fechaRegistro",insertable=false)
+    @Column(name="prof_fechaRegistro",insertable=true)
     private Date fcRegistro;
     
     @Temporal(TemporalType.TIMESTAMP)

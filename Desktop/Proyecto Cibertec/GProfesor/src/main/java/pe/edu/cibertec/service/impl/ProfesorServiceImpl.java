@@ -39,6 +39,7 @@ public class ProfesorServiceImpl implements ProfesorService {
     @Transactional
     @Override
     public void delete(Profesor profesor) {
+        profesor= dao.getById(profesor.getIdProfesor());
         dao.update(profesor);
     }
 

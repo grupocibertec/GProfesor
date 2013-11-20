@@ -64,10 +64,15 @@ public class ProfesorAction extends ActionSupport implements Preparable {
         try {
             profesor.setFcNacimiento(sf.parse(fechaNacimiento));
             profesor.setFcIngreso(sf.parse(fechaIngreso));
-            profesor.setFcRegistro(sf.parse(fechaRegistro));
-            profesor.setFcActualizacion(sf.parse(fechaActualizacion));
+            if (!fechaRegistro.isEmpty()) {
+                profesor.setFcRegistro(sf.parse(fechaRegistro));
+            }
+            if (!fechaActualizacion.isEmpty()) {
+                 profesor.setFcActualizacion(sf.parse(fechaActualizacion));
+            }
+           
             Integer resultado = profesorService.insert(profesor);
-            System.out.println("RESULTADO:"+resultado);
+            System.out.println("RESULTADO:" + resultado);
         } catch (ParseException ex) {
             ex.printStackTrace();
         }

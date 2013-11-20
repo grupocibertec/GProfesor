@@ -29,8 +29,8 @@ public class ProfesorDaoImpl implements ProfesorDao {
     }
 
     
-    @Override
     @Transactional
+    @Override
     public Integer insert(Profesor profesor) {
         em.persist(profesor);
         return profesor.getIdProfesor();
