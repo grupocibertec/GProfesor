@@ -12,6 +12,8 @@
             
        default-lazy-init="true">
 
+   <import resource="SpringSecurity.xml" /> 
+    
    <context:annotation-config/>
     
    <context:component-scan base-package="pe.edu.cibertec"/>
@@ -21,7 +23,7 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/cibertec"/>
         <property name="username" value="root"/>
-        <property name="password" value="mysql"/>
+        <property name="password" value=""/>
     </bean>
     
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
@@ -35,5 +37,8 @@
     </bean> 
     
      <bean id="profesorAction" class="pe.edu.cibertec.action.ProfesorAction"></bean>
+     <bean id="usuarioAction" class="pe.edu.cibertec.action.UsuarioAction"></bean>
+     <bean id="rolAction" class="pe.edu.cibertec.action.RolAction" ></bean>
     
+     <tx:annotation-driven order="1"/>
 </beans>

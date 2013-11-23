@@ -4,6 +4,8 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>pe.edu.cibertec.model.Profesor</class>
     <class>pe.edu.cibertec.model.Auditoria</class>
+    <class>pe.edu.cibertec.model.Usuario</class>
+    <class>pe.edu.cibertec.model.Rol</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="eclipselink.weaving" value="false"/>
