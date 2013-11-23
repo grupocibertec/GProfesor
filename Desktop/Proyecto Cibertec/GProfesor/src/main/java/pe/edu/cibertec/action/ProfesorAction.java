@@ -7,8 +7,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import pe.edu.cibertec.action.prepare.EstadoProfesor;
 import pe.edu.cibertec.action.prepare.Genero;
@@ -53,6 +51,16 @@ public class ProfesorAction extends ActionSupport implements Preparable {
         return SUCCESS;
     }
 
+    public String paginaModificar() {
+        obtenerProfesor();
+        return SUCCESS;
+    }
+
+    public String verDetalle() {
+        obtenerProfesor();
+        return SUCCESS;
+    }
+
     public String eliminar() {
         Profesor p = new Profesor();
         p.setIdProfesor(id);
@@ -64,10 +72,14 @@ public class ProfesorAction extends ActionSupport implements Preparable {
         try {
             profesor.setFcNacimiento(sf.parse(fechaNacimiento));
             profesor.setFcIngreso(sf.parse(fechaIngreso));
-            profesor.setFcRegistro(sf.parse(fechaRegistro));
-            profesor.setFcActualizacion(sf.parse(fechaActualizacion));
-            Integer resultado = profesorService.insert(profesor);
-            System.out.println("RESULTADO:"+resultado);
+            if (!fechaRegistro.isEmpty()) {
+                profesor.setFcRegistro(sf.parse(fechaRegistro));
+            }
+            if (!fechaActualizacion.isEmpty()) {
+                profesor.setFcActualizacion(sf.parse(fechaActualizacion));
+            }
+
+            profesorService.insert(profesor);
         } catch (ParseException ex) {
             ex.printStackTrace();
         }
@@ -75,6 +87,35 @@ public class ProfesorAction extends ActionSupport implements Preparable {
         return SUCCESS;
     }
 
+    public String modificarProfesor() {
+        try {
+            profesor.setFcNacimiento(sf.parse(fechaNacimiento));
+            profesor.setFcIngreso(sf.parse(fechaIngreso));
+            if (!fechaRegistro.isEmpty()) {
+                profesor.setFcRegistro(sf.parse(fechaRegistro));
+            }
+            if (!fechaActualizacion.isEmpty()) {
+                profesor.setFcActualizacion(sf.parse(fechaActualizacion));
+            }
+
+            profesorService.update(profesor);
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        return SUCCESS;
+    }
+
+    //METODOS DE APOYO
+    //----------------------------------
+     public void obtenerProfesor() {
+        profesor = profesorService.getById(id);
+        fechaNacimiento = profesor.getFcNacimiento() != null ? sf.format(profesor.getFcNacimiento()) : null;
+        fechaRegistro = profesor.getFcRegistro() != null ? sf.format(profesor.getFcRegistro()) : null;
+        fechaIngreso = profesor.getFcIngreso() != null ? sf.format(profesor.getFcIngreso()) : null;
+        fechaActualizacion = profesor.getFcActualizacion() != null ? sf.format(profesor.getFcActualizacion()) : null;
+    }
+    //-----------------------------------
     //PREPARE, carga de combos
     @Override
     public void prepare() throws Exception {

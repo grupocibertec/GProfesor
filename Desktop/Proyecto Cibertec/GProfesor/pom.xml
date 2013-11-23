@@ -15,6 +15,20 @@
     </properties>
 
     <dependencies>
+        
+        
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.8.4</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+        
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>javax.persistence</artifactId>
@@ -78,6 +92,12 @@
             <version>3.2.4.RELEASE</version>
         </dependency>
 
+        <dependency>
+            <groupId>aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.5.4</version>
+        </dependency>
+
         <!-- Struts 2 + Spring plugins -->
         <dependency>
             <groupId>org.apache.struts</groupId>
@@ -133,7 +153,7 @@
             <version>2.6</version>
         </dependency>
         
-         <!--Spring Security-->
+        <!--Spring Security-->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
@@ -157,6 +177,8 @@
             <artifactId>spring-expression</artifactId>
             <version>3.1.4.RELEASE</version>
         </dependency>
+            
+        
         
     </dependencies>
 
