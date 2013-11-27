@@ -69,20 +69,24 @@
              <result name="success">noautorizado.jsp</result>
         </action>
         
+    </package>
+     
+    <package name="administrador" namespace="/admin" extends="struts-default">	  
+        
         <action name="listarUsuarios" class="usuarioAction" method="listarUsuarios">
-            <result name="success">pages/usuario/listado.jsp</result>
+            <result name="success">/pages/usuario/listado.jsp</result>
         </action>
         
         <action name="nuevoUsuario" class="usuarioAction" method="nuevoUsuario">
-            <result name="success">pages/usuario/insertar.jsp</result>
+            <result name="success">/pages/usuario/insertar.jsp</result>
         </action>
         
         <action name="listarRoles" class="rolAction" method="listarRoles">
-            <result name="success">pages/rol/listado.jsp</result>
+            <result name="success">/pages/rol/listado.jsp</result>
         </action>
         
         <action name="nuevoRol" class="rolAction" method="nuevoRol">
-            <result name="success">pages/rol/insertar.jsp</result>
+            <result name="success">/pages/rol/insertar.jsp</result>
         </action>
         
         <action name="insertarRol" class="rolAction" method="insertarRol">
@@ -103,6 +107,6 @@
             <result name="noautorizado" type="redirectAction">noAutorizado</result>
         </action>
 
-        
+                
     </package>	
 </struts>

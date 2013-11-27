@@ -1,6 +1,7 @@
 package pe.edu.cibertec.service;
 
 import java.util.List;
+import org.springframework.security.access.prepost.PreAuthorize;
 import pe.edu.cibertec.model.Profesor;
 
 public interface ProfesorService {
@@ -12,7 +13,7 @@ public interface ProfesorService {
     public Integer insert(Profesor profesor);
 
     public void update(Profesor profesor);
-
+    @PreAuthorize("hasRole('ROLE_SUPER')")
     public void delete(Profesor profesor);
 
 }

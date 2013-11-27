@@ -30,7 +30,7 @@
     <div>
         <s:url action="nuevoRol" id="nuevo"></s:url>
         <s:a href="%{nuevo}"><s:text name="enlace.rol.nuevo"/></s:a>
-        <s:url action="indice" id="indice"></s:url>
+        <s:url action="indice" namespace="/" id="indice"></s:url>
         <s:a href="%{indice}"><s:text name="volver"/></s:a>
     </div>
 </div>
