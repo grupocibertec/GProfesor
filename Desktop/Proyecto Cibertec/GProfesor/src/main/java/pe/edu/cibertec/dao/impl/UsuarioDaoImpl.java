@@ -51,12 +51,22 @@ public class UsuarioDaoImpl implements UsuarioDao{
     }
     
     @Override
-    public boolean validarCredenciales(Usuario usuario) {
+    public Usuario validarCredenciales(Usuario usuario) {
          Query  q = em.createQuery("select u from Usuario u where u.nombre = :nombreUsuario and u.clave = :claveUsuario and u.activo=1");
          q.setParameter("nombreUsuario", usuario.getNombre());
          q.setParameter("claveUsuario", usuario.getClave());
          
-         return  (q.getResultList().size() == 1);
+         List<Usuario> usuarios = q.getResultList();
+         
+         
+         if (usuarios.size() == 1)
+         {
+            return (Usuario)usuarios.get(0);
+         }
+         else
+         {
+             return null;
+         }
          
          
     }

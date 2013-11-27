@@ -14,6 +14,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
+import pe.edu.cibertec.model.Rol;
 import pe.edu.cibertec.model.Usuario;
 import pe.edu.cibertec.service.UsuarioService;
 
@@ -34,12 +35,14 @@ public class myAuthenticationProvider implements AuthenticationProvider{
         usuario.setNombre(a.getName());
         usuario.setClave(a.getCredentials().toString());
             
-        boolean existe = usuarioService.validarCredenciales(usuario);
+        usuario = usuarioService.validarCredenciales(usuario);
         
-        if (existe)
+        if (usuario!=null)
         {
             List<GrantedAuthority> grantedAuths = new ArrayList();
-            grantedAuths.add(new SimpleGrantedAuthority("ROLE_USER"));
+            for (Rol rol : usuario.getRoles()) {
+                grantedAuths.add(new SimpleGrantedAuthority(rol.getNombre()));
+            }
             Authentication auth = new UsernamePasswordAuthenticationToken(usuario.getNombre(), usuario.getClave(), grantedAuths);
             return auth;
         }

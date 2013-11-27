@@ -63,16 +63,10 @@ public class UsuarioAction extends ActionSupport{
     } 
     
     public String nuevoUsuario(){
-        try{
-            listaRoles = rolService.list();
-             usuario = new Usuario();
-        }
-        catch (Exception ex){
-            Logger.getLogger(UsuarioAction.class.getName()).log(Level.SEVERE, null, ex);
-            return "noautorizado";
-            
-        }
-        
+       
+       listaRoles = rolService.list();
+       usuario = new Usuario();
+       
         return SUCCESS;
     }
     

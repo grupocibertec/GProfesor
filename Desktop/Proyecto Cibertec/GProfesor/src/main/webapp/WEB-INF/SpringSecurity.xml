@@ -14,7 +14,7 @@
                 <intercept-url pattern="/noAutorizado" access="permitAll" />
                 <intercept-url pattern="/nuevoRol" access="hasAnyRole('ROLE_SUPER','ROLE_MANAGER')" />
                 <intercept-url pattern="/nuevoUsuario" access="hasAnyRole('ROLE_SUPER','ROLE_MANAGER')" />
-		<intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/**" access="hasAnyRole('ROLE_USER','ROLE_SUPER','ROLE_MANAGER')" />
                 <form-login login-page="/inicio" default-target-url="/indice"
 			authentication-failure-url="/noAutenticado" />
 		<logout logout-success-url="/cierre" />    
@@ -25,7 +25,9 @@
             
           <authentication-provider>
 	    <user-service>
-		<user name="luis" password="123456" authorities="ROLE_USER" />
+		<user name="user" password="123456" authorities="ROLE_USER" />
+                <user name="manager" password="123456" authorities="ROLE_MANAGER" />
+                <user name="super" password="123456" authorities="ROLE_SUPER" />
 	    </user-service>
 	  </authentication-provider>
           

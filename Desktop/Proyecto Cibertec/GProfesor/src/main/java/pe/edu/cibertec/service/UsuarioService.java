@@ -20,5 +20,5 @@ public interface UsuarioService {
     public void update(Usuario usuario);
     @PreAuthorize("hasRole('ROLE_SUPER')")
     public void delete(Usuario usuario);
-    public boolean validarCredenciales(Usuario usuario);
+    public Usuario validarCredenciales(Usuario usuario);
 }

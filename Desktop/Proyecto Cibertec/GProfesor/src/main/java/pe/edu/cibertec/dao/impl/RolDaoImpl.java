@@ -49,5 +49,6 @@ public class RolDaoImpl implements RolDao{
     public void delete(Rol rol) {
         em.remove(rol);
     }
+
     
 }

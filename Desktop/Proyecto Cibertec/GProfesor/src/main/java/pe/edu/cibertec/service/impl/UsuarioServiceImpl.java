@@ -52,7 +52,7 @@ public class UsuarioServiceImpl implements UsuarioService{
     }
 
     @Override
-    public boolean validarCredenciales(Usuario usuario) {
+    public Usuario validarCredenciales(Usuario usuario) {
         return usuarioDao.validarCredenciales(usuario);
     }
     

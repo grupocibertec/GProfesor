@@ -48,12 +48,8 @@ public class RolAction extends ActionSupport{
     }
     public String nuevoRol() 
     {
-        try {
-            rol = new Rol();
-        } catch (Exception ex) {
-            Logger.getLogger(RolAction.class.getName()).log(Level.SEVERE, null, ex);
-            return "noautorizado";
-        }
+       
+        rol = new Rol();
        
         return SUCCESS;
     }

@@ -19,5 +19,5 @@ public interface UsuarioDao {
     public void insert(Usuario usuario);
     public void update(Usuario usuario);
     public void delete(Usuario usuario);
-    public boolean validarCredenciales(Usuario usuario);
+    public Usuario validarCredenciales(Usuario usuario);
 }

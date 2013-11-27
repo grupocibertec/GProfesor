@@ -18,4 +18,5 @@ public interface RolDao {
     public void insert(Rol rol);
     public void update(Rol rol);
     public void delete(Rol rol);
+
 }
