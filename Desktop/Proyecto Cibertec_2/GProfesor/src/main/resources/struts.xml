@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+ 
+<struts>
+    
+    <constant name="struts.devMode" value="true" />
+    
+    <constant name="struts.custom.i18n.resources" value="language"/>
+    
+    <package name="default" namespace="/" extends="struts-default">	
+        
+        <action name="verListado" 
+                class="profesorAction" 
+                method="verListado">
+            <result>pages/listado.jsp</result> 
+        </action>
+        
+        <action name="paginaInsertar" 
+                class="profesorAction" 
+                method="paginaInsertar">
+            <result>pages/insertar.jsp</result> 
+        </action>
+        
+        <action name="insertarProfesor" 
+                class="profesorAction" 
+                method="insertarProfesor">
+            <result name="success" type="redirectAction">verListado</result>
+        </action>    
+        
+        <action name="paginaModificar" 
+                class="profesorAction" 
+                method="paginaModificar">
+            <result>pages/modificar.jsp</result> 
+        </action>        
+                      
+        <action name="modificarProfesor" 
+                class="profesorAction" 
+                method="modificarProfesor">
+            <result name="success" type="redirectAction">verListado</result>
+        </action>   	
+        
+        <action name="eliminar" 
+                class="profesorAction" 
+                method="eliminar">
+            <result name="success" type="redirectAction">verListado</result>
+        </action>
+        
+        <action name="verDetalle" 
+                class="profesorAction" 
+                method="verDetalle">
+            <result>pages/detalle.jsp</result> 
+        </action>   	
+        
+        <action name="inicio">
+            <result name="success">login.jsp</result>
+        </action>	
+        
+        <action name="indice">
+            <result name="success">pages/indice.jsp</result>
+        </action>
+        
+        <action name="noAutenticado">
+             <result name="success">login.jsp</result>
+        </action>
+        
+        <action name="noAutorizado">
+             <result name="success">noautorizado.jsp</result>
+        </action>
+        
+    </package>
+     
+    <package name="administrador" namespace="/admin" extends="struts-default">	  
+        
+        <action name="listarUsuarios" class="usuarioAction" method="listarUsuarios">
+            <result name="success">/pages/usuario/listado.jsp</result>
+        </action>
+        
+        <action name="nuevoUsuario" class="usuarioAction" method="nuevoUsuario">
+            <result name="success">/pages/usuario/insertar.jsp</result>
+        </action>
+        
+        <action name="listarRoles" class="rolAction" method="listarRoles">
+            <result name="success">/pages/rol/listado.jsp</result>
+        </action>
+        
+        <action name="nuevoRol" class="rolAction" method="nuevoRol">
+            <result name="success">/pages/rol/insertar.jsp</result>
+        </action>
+        
+        <action name="insertarRol" class="rolAction" method="insertarRol">
+            <result name="success" type="redirectAction">listarRoles</result>
+        </action>
+        
+        <action name="insertarUsuario" class="usuarioAction" method="insertarUsuario">
+            <result name="success" type="redirectAction">listarUsuarios</result>
+        </action>
+        
+        <action name="eliminarRol" class="rolAction" method="eliminarRol">
+            <result name="success" type="redirectAction">listarRoles</result>
+            <result name="noautorizado" type="redirectAction">noAutorizado</result>
+        </action>
+        
+        <action name="eliminarUsuario" class="usuarioAction" method="eliminarUsuario">
+            <result name="success" type="redirectAction">listarUsuarios</result>
+            <result name="noautorizado" type="redirectAction">noAutorizado</result>
+        </action>
+
+                
+    </package>	
+</struts>
