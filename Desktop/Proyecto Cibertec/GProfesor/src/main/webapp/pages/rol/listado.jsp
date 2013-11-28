@@ -1,7 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="s" uri="/struts-tags" %>
-<a href="<c:url value='j_spring_security_logout' />"><s:text name="enlace.salir"></s:text></a>
 <div>
     <table>
         <thead>

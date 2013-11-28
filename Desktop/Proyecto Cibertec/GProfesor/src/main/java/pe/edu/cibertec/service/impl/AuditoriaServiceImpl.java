@@ -2,11 +2,13 @@ package pe.edu.cibertec.service.impl;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pe.edu.cibertec.dao.AuditoriaDao;
 import pe.edu.cibertec.model.Auditoria;
 import pe.edu.cibertec.service.AuditoriaService;
 
+@Service("auditoriaService")
 public class AuditoriaServiceImpl implements AuditoriaService{
 
     @Autowired

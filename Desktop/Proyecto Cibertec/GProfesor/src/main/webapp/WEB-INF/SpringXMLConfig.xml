@@ -24,9 +24,9 @@
     <bean id="dataSource"
         class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/cibertec"/>
+        <property name="url" value="jdbc:mysql://localhost:3307/cibertec"/>
         <property name="username" value="root"/>
-        <property name="password" value=""/>
+        <property name="password" value="mysql"/>
     </bean>
     
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
@@ -41,17 +41,16 @@
     
     <tx:annotation-driven order="1"/>
     
-    <bean id="profesorAction" class="pe.edu.cibertec.action.ProfesorAction"></bean>
-    <bean id="usuarioAction" class="pe.edu.cibertec.action.UsuarioAction"></bean>
-    <bean id="rolAction" class="pe.edu.cibertec.action.RolAction" ></bean>
+    <bean id="profesorAction" scope="prototype" class="pe.edu.cibertec.action.ProfesorAction"></bean>
+    <bean id="usuarioAction" scope="prototype" class="pe.edu.cibertec.action.UsuarioAction"></bean>
+    <bean id="rolAction" scope="prototype" class="pe.edu.cibertec.action.RolAction" ></bean>
      
      
     <tx:advice id="advice1">
         <tx:attributes>
             <tx:method name="list*" read-only="true"/>
             <tx:method name="*"
-                       propagation="REQUIRES_NEW" 
-                       isolation="READ_UNCOMMITTED"/>
+                       propagation="REQUIRES_NEW"/>
         </tx:attributes>
     </tx:advice>
     

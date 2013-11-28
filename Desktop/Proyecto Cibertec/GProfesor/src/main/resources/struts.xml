@@ -26,6 +26,8 @@
         <action name="insertarProfesor" 
                 class="profesorAction" 
                 method="insertarProfesor">
+            <result name="input">pages/insertar.jsp</result>
+            <result name="noAutorizado" type="redirectAction">noAutorizado</result>
             <result name="success" type="redirectAction">verListado</result>
         </action>    
         
@@ -38,12 +40,15 @@
         <action name="modificarProfesor" 
                 class="profesorAction" 
                 method="modificarProfesor">
+            <result name="input">pages/modificar.jsp</result>
+            <result name="noAutorizado" type="redirectAction">noAutorizado</result>
             <result name="success" type="redirectAction">verListado</result>
         </action>   	
         
         <action name="eliminar" 
                 class="profesorAction" 
                 method="eliminar">
+            <result name="noAutorizado" type="redirectAction">noAutorizado</result>
             <result name="success" type="redirectAction">verListado</result>
         </action>
         

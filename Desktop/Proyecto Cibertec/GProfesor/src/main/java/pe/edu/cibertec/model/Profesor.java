@@ -66,15 +66,6 @@ public class Profesor implements Serializable{
     @Column(name="prof_fechaIngreso")
     private Date fcIngreso;
     
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="prof_fechaRegistro",insertable=true)
-    private Date fcRegistro;
-    
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="prof_fechaActualizacion", insertable=false, nullable=true)
-    private Date fcActualizacion;
-
-    
     public Integer getIdProfesor() {
         return idProfesor;
     }
@@ -179,22 +170,6 @@ public class Profesor implements Serializable{
         this.fcIngreso = fcIngreso;
     }
 
-    public Date getFcRegistro() {
-        return fcRegistro;
-    }
-
-    public void setFcRegistro(Date fcRegistro) {
-        this.fcRegistro = fcRegistro;
-    }
-
-    public Date getFcActualizacion() {
-        return fcActualizacion;
-    }
-
-    public void setFcActualizacion(Date fcActualizacion) {
-        this.fcActualizacion = fcActualizacion;
-    }
-
     @Override
     public int hashCode() {
         int hash = 3;
@@ -219,7 +194,7 @@ public class Profesor implements Serializable{
 
     @Override
     public String toString() {
-        return "Profesor{" + "idProfesor=" + idProfesor + ", nombre=" + nombre + ", apPaterno=" + apPaterno + ", apMaterno=" + apMaterno + ", fcNacimiento=" + fcNacimiento + ", genero=" + genero + ", dni=" + dni + ", email=" + email + ", direccion=" + direccion + ", modalidad=" + modalidad + ", nivel=" + nivel + ", estado=" + estado + ", fcIngreso=" + fcIngreso + ", fcRegistro=" + fcRegistro + ", fcActualizacion=" + fcActualizacion + '}';
+        return "Profesor{" + "idProfesor=" + idProfesor + ", nombre=" + nombre + ", apPaterno=" + apPaterno + ", apMaterno=" + apMaterno + ", fcNacimiento=" + fcNacimiento + ", genero=" + genero + ", dni=" + dni + ", email=" + email + ", direccion=" + direccion + ", modalidad=" + modalidad + ", nivel=" + nivel + ", estado=" + estado + ", fcIngreso=" + fcIngreso +'}';
     }
     
     

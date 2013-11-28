@@ -2,13 +2,13 @@ package pe.edu.cibertec.service.impl;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pe.edu.cibertec.dao.ProfesorDao;
 import pe.edu.cibertec.model.Profesor;
 import pe.edu.cibertec.service.ProfesorService;
 
-@Repository("profesorService")
+@Service("profesorService")
 public class ProfesorServiceImpl implements ProfesorService {
 
     @Autowired

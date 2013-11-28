@@ -10,12 +10,12 @@
     <body>
         <div>
             <s:form action="insertarProfesor" autocomplete="off">
-                <s:textfield label="%{getText('listado.nombre')}" maxlength="50" name="profesor.nombre"/>
-                <s:textfield label="%{getText('listado.appaterno')}" maxlength="50" name="profesor.apPaterno"/>
-                <s:textfield label="%{getText('listado.apmaterno')}" maxlength="50" name="profesor.apMaterno"/>
+                <s:textfield required="true" label="%{getText('listado.nombre')}" maxlength="50" name="profesor.nombre"/>
+                <s:textfield required="true" label="%{getText('listado.appaterno')}" maxlength="50" name="profesor.apPaterno"/>
+                <s:textfield required="true" label="%{getText('listado.apmaterno')}" maxlength="50" name="profesor.apMaterno"/>
                 <sj:datepicker maxlength="10" name="fechaNacimiento" 
                                displayFormat="dd/mm/yy" label="%{getText('listado.fechanacimiento')}" 
-                               showAnim="slideDown" duration="fast" />
+                               showAnim="slideDown" duration="fast"/>
 
                 <s:select list="listadoGenero" 
                           listKey="idGenero" 
@@ -23,9 +23,9 @@
                           headerKey="-1" 
                           headerValue="%{getText('combo.header')}"
                           label="%{getText('listado.genero')}"
-                          name="profesor.genero"></s:select>
+                          name="profesor.genero" required="true"></s:select>
 
-                <s:textfield label="%{getText('listado.dni')}" maxLength="7" name="profesor.dni"/>
+                <s:textfield required="true" label="%{getText('listado.dni')}" maxLength="8" name="profesor.dni"/>
                 <s:textfield label="%{getText('listado.email')}" maxlength="50" name="profesor.email"/>
                 <s:textfield label="%{getText('listado.direccion')}" maxlength="50" name="profesor.direccion"/>
 
@@ -35,7 +35,7 @@
                           headerKey="-1" 
                           headerValue="%{getText('combo.header')}"
                           label="%{getText('listado.modalidad')}"
-                          name="profesor.modalidad"></s:select>
+                          name="profesor.modalidad" required="true"></s:select>
 
                 <s:select list="listadoNivelAcademico" 
                           listKey="idNivelAcademico" 
@@ -43,7 +43,7 @@
                           headerKey="-1" 
                           headerValue="%{getText('combo.header')}"
                           label="%{getText('listado.nivel')}"
-                          name="profesor.nivel"></s:select>
+                          name="profesor.nivel" required="true"></s:select>
 
                 <s:select list="listadoEstadoProfesor" 
                           listKey="idEstadoProfesor" 
@@ -51,18 +51,12 @@
                           headerKey="-1" 
                           headerValue="%{getText('combo.header')}"
                           label="%{getText('listado.estado')}"
-                          name="profesor.estado"></s:select>
+                          name="profesor.estado" required="true"></s:select>
 
 
                 <sj:datepicker maxlength="10" name="fechaIngreso" 
                                displayFormat="dd/mm/yy" label="%{getText('listado.fechaIngreso')}" 
-                               showAnim="slideDown" duration="fast" />
-                <sj:datepicker maxlength="10" name="fechaRegistro" 
-                               displayFormat="dd/mm/yy" label="%{getText('listado.fechaRegistro')}" 
-                               showAnim="slideDown" duration="fast" />
-                <sj:datepicker maxlength="10" name="fechaActualizacion" 
-                               displayFormat="dd/mm/yy" label="%{getText('listado.fechaActualizacion')}" 
-                               showAnim="slideDown" duration="fast" />
+                               showAnim="slideDown" duration="fast"/>
 
                 <s:submit value="%{getText('listado.aceptar')}"/>
             </s:form>

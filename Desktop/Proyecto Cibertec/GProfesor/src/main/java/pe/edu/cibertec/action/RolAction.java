@@ -4,8 +4,10 @@
  */
 package pe.edu.cibertec.action;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,8 @@ public class RolAction extends ActionSupport{
     @Autowired
     private RolService rolService;
 
+    private static final ResourceBundle labels = ResourceBundle.getBundle("language", ActionContext.getContext().getLocale());
+    
     public List<Rol> getListaRoles() {
         return listaRoles;
     }
@@ -71,4 +75,19 @@ public class RolAction extends ActionSupport{
 
         return SUCCESS;
     }
+
+    @Override
+    public void validate() {
+        super.validate(); //To change body of generated methods, choose Tools | Templates.
+        
+        if(rol!=null){
+            if(rol.getNombre().trim().isEmpty()){
+                addFieldError("rol.nombre",labels.getString("validacion.rol.nombre"));
+            }
+        }
+        
+    }
+    
+    
+    
 }

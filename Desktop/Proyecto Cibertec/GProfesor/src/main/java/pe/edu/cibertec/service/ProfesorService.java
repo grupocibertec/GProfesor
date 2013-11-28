@@ -10,9 +10,12 @@ public interface ProfesorService {
 
     public Profesor getById(Integer id);
 
+    @PreAuthorize("hasRole('ROLE_SUPER') or hasRole('ROLE_MANAGER')")
     public Integer insert(Profesor profesor);
 
+    @PreAuthorize("hasRole('ROLE_SUPER') or hasRole('ROLE_MANAGER')")
     public void update(Profesor profesor);
+
     @PreAuthorize("hasRole('ROLE_SUPER')")
     public void delete(Profesor profesor);
 

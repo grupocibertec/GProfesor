@@ -13,9 +13,7 @@
                 <th><s:text name="listado.estado"/></th>
                 <th><s:text name="listado.nivel"/></th>
                 <th><s:text name="listado.fechaIngreso"/></th>
-                <th><s:text name="listado.fechaRegistro"/></th>
-                <th><s:text name="listado.fechaActualizacion"/></th>
-                <th colspan="3"><s:text name="listado.accion"/></th>
+                <th colspan="2"><s:text name="listado.accion"/></th>
             </tr>
         </thead>
         <tbody>
@@ -54,7 +52,7 @@
                     </td>
                     <td>
                         <s:if test="nivel=='T'">
-                            <s:text name="nivelAcademico.Técnico"/>
+                            <s:text name="nivelAcademico.tecnico"/>
                         </s:if>
                         <s:if test="nivel=='S'">
                             <s:text name="nivelAcademico.superior"/>
@@ -64,8 +62,6 @@
                         </s:if>
                     </td>
                     <td><s:date format="dd/MM/yyyy" name="fcIngreso"/></td>
-                    <td><s:date format="dd/MM/yyyy" name="fcRegistro"/></td>
-                    <td><s:date format="dd/MM/yyyy" name="fcActualizacion"/></td>
                     <td>
                         <s:url action="paginaModificar" var="paginaModificar">
                             <s:param name="id" value="idProfesor"/>
@@ -78,12 +74,6 @@
                         </s:url>
                         <s:a href="%{eliminar}"><s:text name="listado.eliminar"/></s:a>
                         </td>
-                        <td>
-                        <s:url action="verDetalle" var="verDetalle">
-                            <s:param name="id" value="idProfesor"/>
-                        </s:url>
-                        <s:a href="%{verDetalle}"><s:text name="listado.detalle"/></s:a>
-                        </td>
                     </tr>
             </s:iterator>
         </tbody>
@@ -91,5 +81,7 @@
     <div>
         <s:url action="paginaInsertar" var="paginaInsertar"></s:url>
         <s:a href="%{paginaInsertar}"><s:text name="listado.insertar"/></s:a>
+        <s:url action="indice" namespace="/" id="indice"></s:url>
+        <s:a href="%{indice}"><s:text name="volver"/></s:a>
     </div>
 </div>
