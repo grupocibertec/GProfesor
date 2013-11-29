@@ -7,6 +7,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import pe.edu.cibertec.action.prepare.EstadoProfesor;
 import pe.edu.cibertec.action.prepare.Genero;
@@ -48,6 +50,7 @@ public class ProfesorAction extends ActionSupport implements Preparable {
     }
 
     public String paginaInsertar() {
+        profesor = new Profesor();
         return SUCCESS;
     }
 
@@ -62,9 +65,16 @@ public class ProfesorAction extends ActionSupport implements Preparable {
     }
 
     public String eliminar() {
+        try
+        {
         Profesor p = new Profesor();
         p.setIdProfesor(id);
         profesorService.delete(p);
+        } catch (Exception ex) {
+            Logger.getLogger(ProfesorAction.class.getName()).log(Level.SEVERE, null, ex);
+            return "noautorizado";
+        }
+        
         return SUCCESS;
     }
 

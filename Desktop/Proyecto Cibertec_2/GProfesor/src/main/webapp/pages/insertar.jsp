@@ -25,7 +25,7 @@
                           label="%{getText('listado.genero')}"
                           name="profesor.genero"></s:select>
 
-                <s:textfield label="%{getText('listado.dni')}" maxLength="7" name="profesor.dni"/>
+                <s:textfield label="%{getText('listado.dni')}" maxLength="8" name="profesor.dni"/>
                 <s:textfield label="%{getText('listado.email')}" maxlength="50" name="profesor.email"/>
                 <s:textfield label="%{getText('listado.direccion')}" maxlength="50" name="profesor.direccion"/>
 

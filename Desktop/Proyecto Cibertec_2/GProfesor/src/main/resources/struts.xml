@@ -45,6 +45,7 @@
                 class="profesorAction" 
                 method="eliminar">
             <result name="success" type="redirectAction">verListado</result>
+            <result name="noautorizado" type="redirectAction">noAutorizado</result>
         </action>
         
         <action name="verDetalle" 

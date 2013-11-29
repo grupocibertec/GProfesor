@@ -52,7 +52,7 @@
                     </td>
                     <td>
                         <s:if test="nivel=='T'">
-                            <s:text name="nivelAcademico.Técnico"/>
+                            <s:text name="nivelAcademico.tecnico"/>
                         </s:if>
                         <s:if test="nivel=='S'">
                             <s:text name="nivelAcademico.superior"/>
